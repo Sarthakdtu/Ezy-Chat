@@ -23,6 +23,9 @@ io.on('connection', (socket) => {
         // console.log(data);
         io.sockets.emit('chat', data);
     });
-
+    socket.on('typing', function(data){
+      //console.log(data);
+      socket.broadcast.emit('typing', data);
+    });
 });
 module.exports = {port:port};
